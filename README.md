@@ -7,6 +7,6 @@ Olivettize will read the text file and generate 8.5x11" 600 dpi images, which ar
 
 Requires python3.X and the Pillow image library.
 
-More about the Olivetti Te-318 [here](http://ef1j.org/~emf/Olivetti_TE318.html)
+More about the Olivetti Te-318 [here](http://ef1j.org/~emf/Olivetti_TE318.html).
 
 The contents of this repository are published under the MIT license.
