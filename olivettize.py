@@ -1,8 +1,6 @@
 """
 olivettize.py
 Input a text ascii image and generate the simulated printout using character images.
-This version will make an image size to reproduce IBM 1403 output and will respond
-to form feed characters and Fortran carriage control characters
 Based on earlier programs "makeimage2.py" and "ibm1403.py".
  
 e.m.f. January 2021
@@ -12,6 +10,7 @@ e.m.f. January 2021
 1/17/2021  Rewritten to use an object class "PrintPage", enable printing title at bottom
 1/22/2021  Removed code to print at bottom of page
            introduced pagewidth and pageheight, able to print multiple pages
+1/25/2021  Cleaned up page handling and corrected the page flush
 """
 
 
@@ -110,8 +109,7 @@ if __name__ == '__main__':
                             page.printchar(char)
 
                 # flush the last page to the output
-                if numpage > 0:
-                    output.append(page)
+                output.append(page)
 
                 pdf = []
                 for page in output:
