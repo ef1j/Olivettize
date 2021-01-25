@@ -44,25 +44,26 @@ class PrintPage:
         self.row = 0
 
         # initial offset
-        if number == 0: self.voffset = 2
-        else self.voffset = 0
+        if number == 1: self.voffset = 2
+        else: self.voffset = 0
         self.hoffset = 3
 
     def printchar(self,char):
         # I have 4 versions of the character set for some variation, so files are nnNN
         # nn = 0-3, NN = ASCII value
-        charfile = "chars/" + "{0:02n}".format(self.row % 3) + "{0:02n}".format(char) + ".jpg"
-        try:
-            with Image.open(charfile) as charimg:
-                width, height = charimg.size
-                imgx = (self.column+self.hoffset)*width
-                imgy = (self.row+self.voffset)*height
-                tempimg = self.img.crop((imgx,imgy,imgx+width,imgy+height))
-                tempimg = ImageChops.darker(tempimg, charimg)
-                self.img.paste(tempimg,(imgx,imgy,imgx+width,imgy+height))
-                self.column += 1
-        except OSError:
-            print("Error opening character file", charfile, " line ",self.row)
+        if char != ' ': # space character, just advance
+            charfile = "chars/" + "{0:02n}".format(self.row % 3) + "{0:02n}".format(char) + ".jpg"
+            try:
+                with Image.open(charfile) as charimg:
+                    width, height = charimg.size
+                    imgx = (self.column+self.hoffset)*width
+                    imgy = (self.row+self.voffset)*height
+                    tempimg = self.img.crop((imgx,imgy,imgx+width,imgy+height))
+                    tempimg = ImageChops.darker(tempimg, charimg)
+                    self.img.paste(tempimg,(imgx,imgy,imgx+width,imgy+height))
+            except OSError:
+                print("Error opening character file", charfile, " line ",self.row)
+        if self.column <= 79: self.column += 1
 
 """
  Main program
@@ -89,9 +90,7 @@ if __name__ == '__main__':
                 for line in textfile:
                     # process each character in line
                     for byte in line:
-                        if byte == 32: # space character
-                            page.column += 1 # advance carriage, do not strike!
-                        elif byte == 10: # new line
+                        if byte == 10: # new line
                             page.row += 1
                             page.column = 0
                             if page.row == page.pagerows - page.voffset:
