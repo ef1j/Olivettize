@@ -116,7 +116,7 @@ if __name__ == '__main__':
                     print("Printing page ", page.number, " of ", numpage)
                     page.img = page.img.resize((page.pagewidth//2,page.pageheight//2))
                     pdf.append(page.img)
-                    # page.img.save(filename.split('.')[0] + '_O_' + str(page.number) + ".jpg", "JPEG", dpi=(600,600))
+                    #page.img.save(filename.split('.')[0] + '_O_' + str(page.number) + ".jpg", "JPEG", dpi=(600,600))
 
                 print ("Saving PDF...")
                 pdf[0].save(filename.split('.')[0] + '.pdf', "PDF", resolution=600.0, save_all=True, append_images=pdf[1:])
