@@ -11,4 +11,4 @@ More about the Olivetti Te-318 [here](http://ef1j.org/~emf/Olivetti_TE318.html).
 
 The contents of this repository are published under the MIT license.
 
-[![Art1 output](images/olivettize_O_1.jpg)](olivettize_O_1.jpg | width=400)
+[!](images/olivettize_O_1.jpg | width=400)
