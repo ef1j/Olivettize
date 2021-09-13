@@ -7,7 +7,7 @@ Olivettize will read the text file and generate 8.5x11" 600 dpi images, which ar
 
 Requires Python3.X and the [Pillow image library](https://pillow.readthedocs.io/en/stable/index.html).
 
-More about the Olivetti Te-318 [here](http://ef1j.org/wiki/index.php?n=Main.OlivettiTE-318). The Olivetti communicates using the 64 characters of ASCII-63, so underscore, tilde, carat, curly brackets, and a few other characters don't exist. Nor does lowercase.
+Read more about the Olivetti Te-318 [here](http://ef1j.org/wiki/index.php?n=Main.OlivettiTE-318). The Olivetti communicates using the 64 characters of ASCII-63, so underscore, tilde, carat, curly brackets, and a few other characters don't exist. Nor does lowercase.
 
 The contents of this repository are published under the MIT license.
 
